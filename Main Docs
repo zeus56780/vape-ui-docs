@@ -1,0 +1,51 @@
+--Create the UI Library
+local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt")()
+
+-- Adding the Window
+local win = lib:Window("PREVIEW",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+
+-- Adding Tabs
+local tab = win:Tab("Tab 1")
+
+-- Adding Buttons
+tab:Button("Button", function()
+lib:Notification("Notification", "Hello!", "Hi!")
+end)
+
+-- Adding Toggles
+tab:Toggle("Toggle",false, function(t)
+print(t)
+end)
+
+-- Adding Sliders
+tab:Slider("Slider",0,100,30, function(t)
+print(t)
+end)
+
+-- Adding Dropdowns
+tab:Dropdown("Dropdown",{"Option 1","Option 2","Option 3","Option 4","Option 5"}, function(t)
+print(t)
+end)
+
+-- Adding Colorpickers
+tab:Colorpicker("Colorpicker",Color3.fromRGB(255,0,0), function(t)
+print(t)
+end)
+
+-- Adding Textboxes
+tab:Textbox("Textbox",true, function(t)
+print(t)
+end)
+
+-- Adding Keybinds
+tab:Bind("Bind",Enum.KeyCode.RightShift, function()
+print("Pressed!")
+end)
+
+-- Adding Labels
+tab:Label("Label")
+
+-- Changing Window Colour
+tab:Colorpicker("Change UI Color",Color3.fromRGB(44, 120, 224), function(t)
+lib:ChangePresetColor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
+end)
